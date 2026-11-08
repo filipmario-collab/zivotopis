@@ -1361,11 +1361,11 @@
         statusMsg.textContent = 'Ďakujeme! Tvoje údaje na životopis boli úspešne odoslané. Čoskoro sa ti ozveme.';
         statusMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
       })
-      .catch(function() {
+      .catch(function(err) {
         btnSubmit.disabled = false;
         btnPrev.disabled = false;
         btnSubmit.textContent = 'Odoslať životopis';
-        showError('Odoslanie sa nepodarilo. Tvoje vyplnené údaje ostali uložené na stránke – skús kliknúť na Odoslať znova.');
+        showError('Odoslanie sa nepodarilo (' + (err && err.message ? err.message : 'sieť') + '). Tvoje vyplnené údaje ostali uložené na stránke – skús kliknúť na Odoslať znova.');
       });
   });
 
